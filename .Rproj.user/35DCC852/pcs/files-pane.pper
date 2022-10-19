@@ -1,3 +1,9 @@
 {
-    "path": "C:/Users/raimu/Dropbox/03.Data/las_condes"
+    "path": "C:/Users/raimu/Dropbox/03.Data/las_condes/data/imagenes",
+    "sortOrder": [
+        {
+            "columnIndex": 2,
+            "ascending": true
+        }
+    ]
 }

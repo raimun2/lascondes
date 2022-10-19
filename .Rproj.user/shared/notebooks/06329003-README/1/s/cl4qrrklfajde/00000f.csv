@@ -1,0 +1,10 @@
+"0","mapview::viewRGB(imagen_landsat8, r = 5, g = 4, b = 3, quantiles = c(0.05, .95)) +
+  mapview::mapview(perimetro)
+"
+"2","Warning: Discarded ellps WGS 84 in Proj4 definition: +proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs +type=crs"
+"2","Warning: Discarded datum World Geodetic System 1984 in Proj4 definition"
+"2","Warning: Discarded ellps WGS 84 in Proj4 definition: +proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs +type=crs"
+"2","Warning: Discarded datum World Geodetic System 1984 in Proj4 definition"
+"2","Warning: input and ouput crs are the same"
+"2","Warning: Discarded ellps WGS 84 in Proj4 definition: +proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs +type=crs"
+"2","Warning: Discarded datum World Geodetic System 1984 in Proj4 definition"

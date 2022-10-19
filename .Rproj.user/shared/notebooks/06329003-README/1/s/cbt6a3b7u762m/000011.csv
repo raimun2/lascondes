@@ -1,0 +1,12 @@
+"0","ggplot2::ggplot() +
+  ggplot2::stat_density_2d(data = delitos, 
+              mapping = ggplot2::aes(x = purrr::map_dbl(geometry, ~.[1]),
+                            y = purrr::map_dbl(geometry, ~.[2]),
+                            fill = stat(density)),
+              geom = 'tile',
+              contour = FALSE,
+              alpha = 1) +
+  ggplot2::geom_sf(data=perimetro, fill=NA)
+"
+"2","Error in fortify(data) : object 'perimetro' not found
+"
