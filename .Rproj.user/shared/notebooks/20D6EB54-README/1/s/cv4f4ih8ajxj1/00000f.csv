@@ -1,0 +1,5 @@
+"0","mapview::mapview(dem)
+"
+"2","Number of pixels is above 5e+05. Automatic downsampling of `stars` object is not yet implemented, so rendering may be slow.
+You can pass a `stars` proxy object to mapview to get automatic downsampling.
+"
