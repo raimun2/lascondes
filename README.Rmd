@@ -11,21 +11,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Este conjunto de datos fue preparado para enseñar tecnicas de modelamiento territorial y analisis geoespacial. El lugar seleccionado para este ejemplo es el municipio de Las Condes, en Santiago de Chile. Las Condes es una comuna urbana y mas bien acomodada. En este conjunto de datos se encuentra informacion geopolitica, fisica y sociodemografica de este territorio.
 
-```{r}
-# remotes::install_github("raimun2/lascondes")
-
-library(lascondes)
-
-```
-
-
 
 ## Limites politicos de Las Condes
 
 Se decicio incluir en este conjunto de datos un Shapefile (*.shp) ya que es el formato de datos mas utilizados en el mundo de analisis de datos geograficos vectoriales. El poligono corresponde al perimetro de la comuna
 
 ```{r perimetro, warning=FALSE}
-perimetro <- sf::read_sf("inst/extdata/shp/perimetro_lc.shp")
+perimetro <- sf::read_sf("data/shp/perimetro_lc.shp")
 
 sf::st_crs(perimetro)
 
@@ -38,7 +30,7 @@ mapview::mapview(perimetro)
 Se incluye la informacion a nivel de manzana del indice de bienestar territorial, y sus 19 subindices
 
 ```{r matriz de bienestar territorial}
-bienestar <- sf::read_sf("inst/extdata/MBHT_lc.gpkg")
+bienestar <- sf::read_sf("data/MBHT_lc.gpkg")
 
 mapview::mapview(bienestar, zcol = "ibt")
 
@@ -56,7 +48,7 @@ Se incluyen imagenes satelitales multiespectrales de 30 metros de resolucion, pa
 
 ```{r satelitales, warning=FALSE, error=FALSE}
 imagen_landsat8 <- 
-  stars::read_stars("inst/extdata/imagenes/l8_2016.tif")
+  stars::read_stars("data/imagenes/l8_2016.tif")
   
 mapview::viewRGB(as(imagen_landsat8, "Raster") , r = 5, g = 4, b = 3, quantiles = c(0.05, .95))
 
@@ -68,7 +60,7 @@ Se incluye el modelo de elevacion digital del SRTM, con diferentes resoluciones
 
 ```{r, warning=FALSE, error=FALSE, message=FALSE}
 
-dem <-   stars::read_stars("inst/extdata/DEM/z12.tif")
+dem <-   stars::read_stars("data/DEM/z12.tif")
 
 mapview::mapview(dem)
 
@@ -81,7 +73,7 @@ Por ultimo, se incluye un registro de los delitos comentidos en Las Condes duran
 
 ```{r, delitos, warning=FALSE}
 
-delitos <- readr::read_rds("inst/extdata/delitos_lc.rds")
+delitos <- readr::read_rds("data/delitos_lc.rds")
 
 mapview::mapview(delitos)
 
