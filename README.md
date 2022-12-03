@@ -10,12 +10,6 @@ Las Condes es una comuna urbana y mas bien acomodada. En este conjunto
 de datos se encuentra informacion geopolitica, fisica y sociodemografica
 de este territorio.
 
-``` r
-# remotes::install_github("raimun2/lascondes")
-
-library(lascondes)
-```
-
 ## Limites politicos de Las Condes
 
 Se decicio incluir en este conjunto de datos un Shapefile (\*.shp) ya
@@ -24,7 +18,7 @@ datos geograficos vectoriales. El poligono corresponde al perimetro de
 la comuna
 
 ``` r
-perimetro <- sf::read_sf("inst/extdata/shp/perimetro_lc.shp")
+perimetro <- sf::read_sf("data/shp/perimetro_lc.shp")
 
 sf::st_crs(perimetro)
 ```
@@ -79,7 +73,7 @@ Se incluye la informacion a nivel de manzana del indice de bienestar
 territorial, y sus 19 subindices
 
 ``` r
-bienestar <- sf::read_sf("inst/extdata/MBHT_lc.gpkg")
+bienestar <- sf::read_sf("data/MBHT_lc.gpkg")
 
 mapview::mapview(bienestar, zcol = "ibt")
 ```
@@ -185,7 +179,7 @@ resolucion, para los años 2013 al 2021.
 
 ``` r
 imagen_landsat8 <- 
-  stars::read_stars("inst/extdata/imagenes/l8_2016.tif")
+  stars::read_stars("data/imagenes/l8_2016.tif")
   
 mapview::viewRGB(as(imagen_landsat8, "Raster") , r = 5, g = 4, b = 3, quantiles = c(0.05, .95))
 ```
@@ -198,12 +192,12 @@ Se incluye el modelo de elevacion digital del SRTM, con diferentes
 resoluciones
 
 ``` r
-dem <-   stars::read_stars("inst/extdata/DEM/z12.tif")
+dem <-   stars::read_stars("data/DEM/z12.tif")
 
 mapview::mapview(dem)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 # Delitos
 
@@ -212,7 +206,7 @@ Condes durante 2018, donde ademas de la ubicacion del suceso de indica
 si fue robo o un hecho de violencia
 
 ``` r
-delitos <- readr::read_rds("inst/extdata/delitos_lc.rds")
+delitos <- readr::read_rds("data/delitos_lc.rds")
 
 mapview::mapview(delitos)
 ```
@@ -230,4 +224,4 @@ mapview::viewRGB(as(imagen_landsat8, "Raster") , r = 5, g = 4, b = 3, quantiles 
   mapview::mapview(bienestar, zcol = "ibt")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
