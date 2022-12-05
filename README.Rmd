@@ -27,17 +27,19 @@ mapview::mapview(perimetro)
 
 ## Datos sociodemograficos
 
-Se incluye la informacion a nivel de manzana del indice de bienestar territorial, y sus 19 subindices
+
+
+Se incluye la informacion a nivel de manzana del censo y de los indices de bienestar territorial.
 
 ```{r matriz de bienestar territorial}
+censo <- readr::read_rds("data/censo.rds")
+
+dplyr::glimpse(censo)
+
+
 bienestar <- sf::read_sf("data/MBHT_lc.gpkg")
 
 mapview::mapview(bienestar, zcol = "ibt")
-
-sf::st_crs(bienestar)
-
-
-dplyr::glimpse(bienestar)
 
 ```
 

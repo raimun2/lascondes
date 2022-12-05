@@ -1,3 +1,0 @@
-"0","bienestar <- sf::read_sf(""data/MBHT_lc.gpkg"")"
-"0",""
-"0","mapview::mapview(bienestar, zcol = ""ibt"")"
