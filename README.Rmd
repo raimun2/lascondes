@@ -25,6 +25,22 @@ mapview::mapview(perimetro)
 
 ```
 
+
+
+## Red Vial
+
+Se incluye la red de calles de las condes, la cual viene como lineas
+
+```{r}
+calles <- sf::read_sf("data/red_vial_LC.gpkg") 
+
+mapview::mapview(calles) + 
+  mapview::mapview(perimetro, color = "white", zcol = NULL )
+
+```
+
+
+
 ## Datos sociodemograficos
 
 
@@ -71,7 +87,7 @@ mapview::mapview(dem)
 
 # Delitos
 
-Por ultimo, se incluye un registro de los delitos comentidos en Las Condes durante 2018, donde ademas de la ubicacion del suceso de indica si fue robo o un hecho de violencia
+Se incluye un registro de los delitos comentidos en Las Condes durante 2018, donde ademas de la ubicacion del suceso de indica si fue robo o un hecho de violencia
 
 ```{r, delitos, warning=FALSE}
 
@@ -83,6 +99,29 @@ mapview::mapview(delitos)
 ```
 
 
+
+
+# Precios de viviendas
+
+Por ultimo, se incluye un registro de la venta de propiedades en Las Condes entre 2010 y 2013.
+
+```{r, delitos, warning=FALSE}
+
+viviendas_por_mz <- 
+  readr::read_csv2("data/viviendas_LC.csv") |>
+  dplyr::mutate(ID_MANZ = as.character(ID_MANZ),
+                UFm2 = UF_TRANS / SUP_CONSTR) |>
+  dplyr::group_by(ID_MANZ)|> 
+  dplyr::summarise(UFm2 = mean(UFm2)) |>  
+  left_join(censo, by="ID_MANZ") 
+
+
+mapview::mapview(viviendas_por_mz$geometry)
+
+```
+
+
+
 Si apilamos las capas se puede ver que las imagenes tienen un area superior a la extension de la comuna, y tambien se puede ver que mas de la mitad del area de la comuna se encuentra en territorio de montaña, por lo que no tiene poligonos de manzanas en su area
 
 ```{r, warning=FALSE}
@@ -90,9 +129,6 @@ Si apilamos las capas se puede ver que las imagenes tienen un area superior a la
 mapview::viewRGB(as(imagen_landsat8, "Raster") , r = 5, g = 4, b = 3, quantiles = c(0.05, .95)) +
   mapview::mapview(perimetro, color = "white", zcol = NULL ) +
   mapview::mapview(bienestar, zcol = "ibt")
-
-
-
 
 ```
 

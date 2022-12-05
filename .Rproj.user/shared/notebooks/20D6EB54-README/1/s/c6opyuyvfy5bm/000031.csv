@@ -1,0 +1,16 @@
+"0","mapview::mapview(viviendas_por_mz)
+"
+"2","Error: 
+oops! Arguments xcol and/or ycol are missing!
+You probably expected viviendas_por_mz to be a spatial object. 
+However it is of class tbl_df. 
+Either convert viviendas_por_mz to a spatial object or provide xcol and ycol.
+oops! Arguments xcol and/or ycol are missing!
+You probably expected viviendas_por_mz to be a spatial object. 
+However it is of class tbl. 
+Either convert viviendas_por_mz to a spatial object or provide xcol and ycol.
+oops! Arguments xcol and/or ycol are missing!
+You probably expected viviendas_por_mz to be a spatial object. 
+However it is of class data.frame. 
+Either convert viviendas_por_mz to a spatial object or provide xcol and ycol.
+"

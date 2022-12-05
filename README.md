@@ -152,6 +152,19 @@ mapview::mapview(dem)
 
 ![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
+## Red Vial
+
+Se incluye la red de calles de las condes, la cual viene como lineas
+
+``` r
+calles <- sf::read_sf("data/red_vial_LC.gpkg") 
+
+mapview::mapview(calles) + 
+  mapview::mapview(perimetro, color = "white", zcol = NULL )
+```
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
 # Delitos
 
 Por ultimo, se incluye un registro de los delitos comentidos en Las
@@ -177,4 +190,4 @@ mapview::viewRGB(as(imagen_landsat8, "Raster") , r = 5, g = 4, b = 3, quantiles 
   mapview::mapview(bienestar, zcol = "ibt")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
